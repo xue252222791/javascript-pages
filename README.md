@@ -7,7 +7,7 @@ Page(option,callback);<br/>
 ###option参数配置如下
 
 ####content  必填<br/>		
-分页所在的容器
+分页所在的容器  传入 dom对象
 ####pages  必填<br/>
 总共有多少页
 ####groups <br/>
