@@ -1,3 +1,4 @@
+
 (function(){
 	/*
 	content:document.getElementById('box'),
@@ -46,7 +47,7 @@
 			start = 1;
 		}
 		var end = this.config.currt+interg>=this.config.pages?this.config.pages:this.config.currt+interg;
-		end = end<this.config.groups?this.config.groups:end;
+		//end = end<this.config.groups?this.config.groups:end;
 		for(var i=start; i<=end;i++){
 			if(i == this.config.currt){
 				htmlElm+='<span class="currt"><em class="page-curt" style="background:'+this.config.skin+';"></em><em>'+(i==1?this.config.first:i)+'</em></span>';
@@ -61,7 +62,7 @@
 			htmlElm+='<a href="javascript:void(0)" title="'+this.config.next+'" data-page="'+(this.config.currt+1)+'">'+this.config.next+'</a>';
 		}
 		if(this.config.skip){
-		htmlElm+='<span class="page-control">到第<input type="text">页<button>确定</button></span>'
+		    htmlElm+='<span class="page-control">到第<input type="text">页<button>确定</button></span>'
 		}
 		this.config.content.innerHTML = htmlElm;
 	}
@@ -88,7 +89,7 @@
 				inputCotr.value = entr;
 			});
 			Pages.on(jumpBtn,'click',function(){
-				console.log(33);
+			
 				if(inputCotr.value.length==0) return false;
 				_this.config.currt = parseInt(inputCotr.value)>_this.config.pages?_this.config.pages:parseInt(inputCotr.value);
 				_this.jump(_this.config.currt);
@@ -97,7 +98,8 @@
 		}
 	}
 	Pages.prototype.render = function(){
-		this.view();
+        this.view();
+        this.jump(this.config.currt);
 		this.bindEve();
 	}
 	window.Page = function(config,callback){
